@@ -43,7 +43,7 @@ export const INDUSTRY_EXAMPLES: IndustryCategory[] = [
     id: 'gyms',
     name: 'Gyms and studios',
     conceptLine: "Every class becomes a tally mark on the coach's whiteboard.",
-    description: 'Designed as a real whiteboard with handwritten tally counts, monthly volume graphs, and member personal records.',
+    description: "Written on the studio's whiteboard: a tally mark for every class, a red circle around their best month, a crossed-off box for every week of their longest streak, sticky notes with their favorite class and coach, and where they rank (or the hours they put in).",
     videos: [
       {
         id: 'gym-1',
@@ -75,7 +75,7 @@ export const INDUSTRY_EXAMPLES: IndustryCategory[] = [
     id: 'salons',
     name: 'Salons and spas',
     conceptLine: 'Lipstick on the mirror, a stamp for every visit.',
-    description: 'A glowing vanity mirror motif with handwritten lipstick cursive, service stamps, and seasonal treatment timelines.',
+    description: "A bulb-lit vanity mirror with their name in lipstick, a loyalty card with a stamp for every visit, the salon's swatch ring with their services pulled out, and next year's appointment card.",
     videos: [
       {
         id: 'salon-1',
@@ -107,7 +107,7 @@ export const INDUSTRY_EXAMPLES: IndustryCategory[] = [
     id: 'schools',
     name: 'Schools and courses',
     conceptLine: "Lessons, streaks and levels in the student's own notebook.",
-    description: 'Graph-paper and ruled notebook pages filled with handwritten milestones, solved problems, and grade advances.',
+    description: 'Their own exercise notebook: the class photo taped in, a tick for every lesson, a gold star for every week of their streak, a line climbing to their new level, and a certificate signed by their teacher.',
     videos: [
       {
         id: 'learning-1',
@@ -139,7 +139,7 @@ export const INDUSTRY_EXAMPLES: IndustryCategory[] = [
     id: 'nonprofits',
     name: 'Nonprofits',
     conceptLine: 'A thank-you letter that shows what each gift became.',
-    description: 'Warm textured letterhead detailing how the donor’s contributions translated into real human outcomes.',
+    description: "A typed thank-you letter with a photo of the work, a postage stamp for every month they gave, what their gifts became (like 96 bowls on a long table), and the founder's signature.",
     videos: [
       {
         id: 'nonprofit-1',

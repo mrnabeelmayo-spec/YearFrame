@@ -10,7 +10,7 @@ const PosterTile: React.FC<PosterTileProps> = ({ poster }) => {
 
   return (
     <div
-      className="group relative aspect-[9/16] rounded-md bg-stone-200 border border-stone-200 overflow-hidden flex flex-col justify-center items-center transition-all duration-200"
+      className="group relative aspect-[4/5] rounded-md bg-stone-200 border border-stone-200 overflow-hidden flex flex-col justify-center items-center transition-all duration-200"
     >
       {!imgError ? (
         <img

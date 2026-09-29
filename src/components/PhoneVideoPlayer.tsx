@@ -18,7 +18,6 @@ export const PhoneVideoPlayer: React.FC<PhoneVideoPlayerProps> = ({
   const [videoError, setVideoError] = useState(false);
   const [posterError, setPosterError] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const videoEl = videoRef.current;
@@ -69,14 +68,6 @@ export const PhoneVideoPlayer: React.FC<PhoneVideoPlayerProps> = ({
     }
   };
 
-  const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
-  };
-
   return (
     <div
       ref={containerRef}
@@ -109,7 +100,7 @@ export const PhoneVideoPlayer: React.FC<PhoneVideoPlayerProps> = ({
               src={item.video}
               poster={!posterError ? item.poster : undefined}
               preload="none"
-              muted={isMuted}
+              muted
               loop
               playsInline
               onLoadedData={() => setVideoLoaded(true)}
@@ -152,26 +143,6 @@ export const PhoneVideoPlayer: React.FC<PhoneVideoPlayerProps> = ({
             </div>
           )}
 
-          {/* Audio toggle button if video is loaded and working */}
-          {!videoError && videoLoaded && (
-            <button
-              onClick={toggleMute}
-              type="button"
-              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-              className="absolute bottom-3 right-3 z-20 px-2 py-1 bg-black/60 hover:bg-black/80 text-white rounded text-[11px] font-mono transition-colors"
-            >
-              {isMuted ? 'MUTED' : 'AUDIO ON'}
-            </button>
-          )}
-
-          {/* Video path indicator if video is playing/showing */}
-          {!videoError && (
-            <div className="absolute bottom-2 left-2 right-2 z-20 pointer-events-none">
-              <div className="bg-stone-900/90 backdrop-blur-xs border border-stone-700/60 rounded px-2 py-1 text-[10px] font-mono text-stone-300 truncate text-center shadow-xs">
-                {item.video}
-              </div>
-            </div>
-          )}
         </div>
       </div>
 

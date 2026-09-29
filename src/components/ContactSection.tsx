@@ -52,7 +52,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPlan })
             Get a free sample in your brand.
           </h2>
           <p className="mt-3 text-lg text-stone-600">
-            No commitment and no client data required. I'll make a custom 25-second preview using your name, colors, and made-up people.
+            No commitment and no client data required. I'll make a custom preview video (about 25 seconds) using your name, colors, and made-up people.
           </p>
         </div>
 

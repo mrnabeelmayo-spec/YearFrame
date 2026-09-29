@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({
               Yearframe
             </a>
             <p className="mt-2 text-sm text-stone-400 max-w-sm leading-relaxed">
-              Personalized 25-second year-in-review videos for gyms, salons, courses, and nonprofits.
+              Short personalized year-in-review videos (about 25 seconds) for gyms, salons, courses, and nonprofits.
             </p>
           </div>
 

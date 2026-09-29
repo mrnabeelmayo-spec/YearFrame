@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({ onGetSampleClick, onSeeExamplesClick
             </h1>
 
             <p className="mt-6 text-lg sm:text-xl text-stone-600 leading-relaxed max-w-2xl">
-              Send a spreadsheet. Get back a 25-second video for each member, client, student or donor, in your brand, ready to send.
+              Send a spreadsheet. Get back a short video (about 25 seconds) for each member, client, student or donor, in your brand, ready to send.
             </p>
 
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onGetSampleClick, onSeeExamplesClick
             {/* Quick feature cues */}
             <div className="mt-12 pt-8 border-t border-stone-200/90 grid grid-cols-2 sm:grid-cols-3 gap-6 text-xs text-stone-600">
               <div>
-                <span className="font-semibold text-stone-900 block text-sm">25 Seconds</span>
+                <span className="font-semibold text-stone-900 block text-sm">About 25 seconds</span>
                 <span className="text-stone-500 mt-0.5 block">Made for phone screens & messaging</span>
               </div>
               <div>
