@@ -69,8 +69,13 @@ export const ExamplesSection: React.FC = () => {
           ))}
         </div>
 
+        {/* What this industry's videos show: below the videos, so they stay near the top on phones */}
+        <p className="mt-8 max-w-3xl mx-auto text-center text-sm sm:text-base text-stone-600 leading-relaxed">
+          {currentCategory.description}
+        </p>
+
         {/* Required footnote under the videos */}
-        <div className="mt-12 text-center text-xs sm:text-sm text-stone-500">
+        <div className="mt-6 text-center text-xs sm:text-sm text-stone-500">
           Demo: made-up people and data.
         </div>
       </div>
