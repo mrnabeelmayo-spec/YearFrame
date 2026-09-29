@@ -10,13 +10,12 @@ const PosterTile: React.FC<PosterTileProps> = ({ poster }) => {
 
   return (
     <div
-      className="group relative aspect-[9/16] rounded-lg bg-stone-100 border border-stone-200/90 overflow-hidden flex flex-col justify-between p-1.5 transition-all duration-200 hover:border-stone-400 hover:shadow-xs"
-      title={`${poster.name} · ${poster.classes} (${poster.path})`}
+      className="group relative aspect-[9/16] rounded-md bg-stone-200 border border-stone-200 overflow-hidden flex flex-col justify-center items-center transition-all duration-200"
     >
       {!imgError ? (
         <img
           src={poster.path}
-          alt={`Year-in-review poster for ${poster.name}`}
+          alt=""
           loading="lazy"
           referrerPolicy="no-referrer"
           onError={() => setImgError(true)}
@@ -24,31 +23,11 @@ const PosterTile: React.FC<PosterTileProps> = ({ poster }) => {
         />
       ) : null}
 
-      {/* Styled neat grey placeholder when image is pending */}
-      <div className={`relative z-10 w-full h-full flex flex-col justify-between ${!imgError ? 'hidden' : 'flex'}`}>
-        <div className="flex items-center justify-between">
-          <span className="text-[9px] font-mono font-semibold text-stone-500 tabular-nums">
-            #{poster.number}
-          </span>
-          <span className="text-[8px] font-mono text-stone-400 truncate max-w-[45px]">
-            {poster.number}.jpg
-          </span>
-        </div>
-
-        <div className="my-auto text-center py-1">
-          <div className="text-[9px] font-bold text-stone-800 truncate leading-tight">
-            {poster.name}
-          </div>
-          <div className="text-[8px] text-stone-500 font-mono mt-0.5 tabular-nums truncate">
-            {poster.classes}
-          </div>
-        </div>
-
-        <div className="pt-0.5 border-t border-stone-200/80 flex items-center justify-center">
-          <span className="text-[7.5px] font-mono text-stone-400 tracking-tighter truncate">
-            gym-all/{poster.number}.jpg
-          </span>
-        </div>
+      {/* Styled neat grey placeholder showing filename if image is missing */}
+      <div className={`relative z-10 w-full h-full p-1 bg-stone-200 flex flex-col items-center justify-center text-center ${!imgError ? 'hidden' : 'flex'}`}>
+        <span className="text-[8px] sm:text-[9px] font-mono text-stone-500 break-all leading-tight select-none">
+          {poster.number}.jpg
+        </span>
       </div>
     </div>
   );
@@ -72,11 +51,6 @@ export const ScalePosterGrid: React.FC = () => {
           {SCALE_POSTERS.map((poster) => (
             <PosterTile key={poster.id} poster={poster} />
           ))}
-        </div>
-
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-xs text-stone-500 font-mono">
-          <span>Grid preview: 50 personalized posters generated from a single batch</span>
-          <span className="text-stone-400">Path configuration: /posters/gym-all/01.jpg – 50.jpg</span>
         </div>
       </div>
     </section>

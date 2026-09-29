@@ -54,10 +54,16 @@ export const ExamplesSection: React.FC = () => {
           </span>
         </div>
 
-        {/* 3 Videos in a Row on Desktop, 1 Column on Mobile */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-start">
+        {/* Videos Container: 
+            Mobile: Horizontal swipe row (snap scroll, one phone at a time with next one peeking in).
+            Desktop: 3 in a row grid.
+        */}
+        <div className="mt-10 flex overflow-x-auto snap-x snap-mandatory pb-4 pt-1 gap-6 md:grid md:grid-cols-3 md:gap-8 lg:gap-10 md:overflow-visible md:pb-0 scrollbar-none">
           {currentCategory.videos.map((item) => (
-            <div key={item.id} className="flex justify-center">
+            <div
+              key={item.id}
+              className="flex justify-center shrink-0 w-[82vw] max-w-[310px] snap-center md:w-auto md:max-w-none"
+            >
               <PhoneVideoPlayer item={item} />
             </div>
           ))}

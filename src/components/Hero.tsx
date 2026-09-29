@@ -10,18 +10,11 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onGetSampleClick, onSeeExamplesClick }) => {
   const heroVideoItem = {
     id: 'hero-gym-1',
-    title: 'Apex Fitness & Conditioning',
-    caption: 'Sarah · 142 classes in 2026',
+    title: HERO_MEDIA.title,
+    caption: HERO_MEDIA.caption,
     video: HERO_MEDIA.video,
     poster: HERO_MEDIA.poster,
     industry: 'gym' as const,
-    sampleData: {
-      recipient: HERO_MEDIA.recipient,
-      headline: HERO_MEDIA.classes,
-      metric1: { label: 'Consistency', value: HERO_MEDIA.streak },
-      metric2: { label: 'Ranking', value: 'Top 5%' },
-      highlight: HERO_MEDIA.highlight,
-    },
   };
 
   return (
@@ -67,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({ onGetSampleClick, onSeeExamplesClick
               </div>
               <div>
                 <span className="font-semibold text-stone-900 block text-sm">100% On-Brand</span>
-                <span className="text-stone-500 mt-0.5 block">Your colors, logos, and custom motifs</span>
+                <span className="text-stone-500 mt-0.5 block">Your name, colors, and class or service names</span>
               </div>
               <div className="col-span-2 sm:col-span-1">
                 <span className="font-semibold text-stone-900 block text-sm">Ready to Send</span>

@@ -11,7 +11,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
       capacity: 'Up to 200 people',
       price: '$400',
       turnaround: '7 days',
-      isPopular: false,
       description: 'Ideal for boutique studios, small gyms, local salons, and specialized workshops.',
     },
     {
@@ -19,15 +18,13 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
       capacity: 'Up to 500 people',
       price: '$750',
       turnaround: '7 days',
-      isPopular: true,
-      description: 'Our most common package for established fitness clubs, day spas, and membership programs.',
+      description: 'For established fitness clubs, day spas and membership programs.',
     },
     {
       name: 'Large',
       capacity: 'Up to 1,000 people',
       price: '$1,200',
       turnaround: '10 days',
-      isPopular: false,
       description: 'Built for high-volume facilities, multi-trainer studios, and online course cohorts.',
     },
     {
@@ -35,7 +32,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
       capacity: 'More than 1,000 people or several locations',
       price: 'Price on request',
       turnaround: 'Flexible schedule',
-      isPopular: false,
       description: 'Tailored workflows for franchise networks, university programs, and large regional nonprofits.',
     },
   ];
@@ -73,18 +69,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`flex flex-col justify-between rounded-2xl p-6 sm:p-7 transition-all ${
-                tier.isPopular
-                  ? 'bg-white border-2 border-stone-900 shadow-md relative'
-                  : 'bg-white border border-stone-200 shadow-xs'
-              }`}
+              className="flex flex-col justify-between rounded-2xl p-6 sm:p-7 bg-white border border-stone-200 shadow-xs"
             >
               <div>
-                {tier.isPopular && (
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-stone-900 mb-2">
-                    Most Popular
-                  </div>
-                )}
                 <h3 className="text-xl font-bold text-stone-900">
                   {tier.name}
                 </h3>
@@ -110,11 +97,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) 
                 <button
                   type="button"
                   onClick={() => onSelectPlan(tier.name)}
-                  className={`w-full py-2.5 px-4 rounded-lg text-sm font-semibold transition-colors ${
-                    tier.isPopular
-                      ? 'bg-stone-900 text-white hover:bg-stone-800'
-                      : 'bg-stone-100 text-stone-900 hover:bg-stone-200'
-                  }`}
+                  className="w-full py-2.5 px-4 rounded-lg text-sm font-semibold transition-colors bg-stone-100 text-stone-900 hover:bg-stone-200"
                 >
                   Choose {tier.name}
                 </button>
