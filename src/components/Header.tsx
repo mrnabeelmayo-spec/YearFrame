@@ -44,14 +44,14 @@ export const Header: React.FC<HeaderProps> = ({ onNavigateHome, isSubPage = fals
     <header className="sticky top-0 z-50 bg-[#FAFAF9]/95 backdrop-blur-md border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
-          {/* Brand Wordmark (Simple text wordmark 'Yearframe'. No generic icons.) */}
+          {/* Brand Wordmark (Simple text wordmark 'Yearframes'. No generic icons.) */}
           <div className="flex-shrink-0">
             <a
               href="/"
               onClick={handleBrandClick}
               className="text-xl sm:text-2xl font-bold tracking-tight text-stone-900 hover:text-stone-700 transition-colors"
             >
-              Yearframe
+              Yearframes
             </a>
           </div>
 

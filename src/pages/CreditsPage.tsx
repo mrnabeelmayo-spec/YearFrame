@@ -37,7 +37,7 @@ export const CreditsPage: React.FC<CreditsPageProps> = ({ onBackToHome }) => {
           </p>
 
           <div className="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
-            <span>Yearframe Media Assets</span>
+            <span>Yearframes Media Assets</span>
             <span>Unsplash License</span>
           </div>
         </div>

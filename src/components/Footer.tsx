@@ -25,7 +25,7 @@ export const Footer: React.FC<FooterProps> = ({
               }}
               className="text-2xl font-bold tracking-tight text-white hover:text-stone-200 transition-colors"
             >
-              Yearframe
+              Yearframes
             </a>
             <p className="mt-2 text-sm text-stone-400 max-w-sm leading-relaxed">
               Short personalized year-in-review videos (about 25 seconds) for gyms, salons, courses, and nonprofits.
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
           <div>
-            © 2026 Yearframe. All rights reserved.
+            © 2026 Yearframes. All rights reserved.
           </div>
           <div className="text-stone-400">
             Handcrafted by Nabeel Mayo. No tracking cookies.

@@ -19,7 +19,7 @@ export const AboutSection: React.FC = () => {
                     loading="lazy"
                     referrerPolicy="no-referrer"
                     onError={() => setPhotoError(true)}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[50%_15%]"
                   />
                 ) : null}
 

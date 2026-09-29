@@ -1,5 +1,5 @@
 /**
- * Yearframe Media Configuration
+ * Yearframes Media Configuration
  * Update video and image paths in this file.
  * If a media file does not exist in the public directory, the site will
  * automatically render a neat, styled placeholder showing the filename.

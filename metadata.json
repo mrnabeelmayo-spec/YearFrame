@@ -1,6 +1,6 @@
 {
-  "name": "Yearframe",
-  "description": "Responsive marketing website for Yearframe: personalized year-in-review videos for businesses.",
+  "name": "Yearframes",
+  "description": "Responsive marketing website for Yearframes: personalized year-in-review videos for businesses.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

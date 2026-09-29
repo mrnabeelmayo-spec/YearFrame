@@ -53,7 +53,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onBackToHome }) => {
               2. How Client Data is Handled and Deleted After Delivery
             </h2>
             <p className="mt-3 text-sm sm:text-base">
-              Protecting customer trust is central to how Yearframe operates:
+              Protecting customer trust is central to how Yearframes operates:
             </p>
             <ul className="mt-2 list-disc list-inside space-y-2 text-sm sm:text-base text-stone-600">
               <li>
@@ -88,7 +88,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onBackToHome }) => {
               For any questions regarding data security, DPA requests, or privacy practices, reach out directly to:
             </p>
             <div className="mt-4 p-5 bg-white border border-stone-200 rounded-xl text-sm space-y-1">
-              <div className="font-semibold text-stone-900">Nabeel Mayo · Yearframe</div>
+              <div className="font-semibold text-stone-900">Nabeel Mayo · Yearframes</div>
               <div>Email: <a href={`mailto:${ABOUT_MEDIA.email}`} className="text-stone-900 underline font-medium">{ABOUT_MEDIA.email}</a></div>
               <div>WhatsApp: <a href={ABOUT_MEDIA.whatsappLink} className="text-stone-900 underline font-medium">{ABOUT_MEDIA.whatsapp}</a></div>
             </div>

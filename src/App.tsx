@@ -18,7 +18,8 @@ export default function App() {
     return window.location.pathname;
   });
 
-  const [selectedPlan, setSelectedPlan] = useState<string>('');
+  // A new object on every click, so choosing the same plan again selects it again
+  const [planRequest, setPlanRequest] = useState<{ plan: string } | null>(null);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -35,10 +36,10 @@ export default function App() {
   };
 
   const handleSelectPlan = (planName: string) => {
-    setSelectedPlan(planName);
-    const contactEl = document.querySelector('#contact');
-    if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth' });
+    setPlanRequest({ plan: planName });
+    const formEl = document.querySelector('#contact-form');
+    if (formEl) {
+      formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -124,7 +125,7 @@ export default function App() {
         <AboutSection />
 
         {/* 10. Contact (Free sample & Netlify form) */}
-        <ContactSection prefilledPlan={selectedPlan} />
+        <ContactSection planRequest={planRequest} />
       </main>
 
       {/* 11. Footer */}

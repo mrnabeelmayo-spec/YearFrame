@@ -1,22 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ABOUT_MEDIA } from '../config/media';
 
+// "How many people will get a video?": each range, the pricing plan it matches (the pricing
+// buttons select a range by plan name) and the plan as shown and sent with the form
+const PEOPLE_OPTIONS = [
+  { people: 'Up to 200', plan: 'Starter', details: 'Starter, $400, 7 days' },
+  { people: '201 to 500', plan: 'Standard', details: 'Standard, $750, 7 days' },
+  { people: '501 to 1,000', plan: 'Large', details: 'Large, $1,200, 10 days' },
+  { people: 'More than 1,000', plan: 'Custom', details: 'Custom, price on request' },
+  { people: 'Not sure yet', plan: '', details: '' },
+];
+
+const NOT_SURE_PLAN = 'Not sure yet: suggest a plan after the free sample';
+
+const EMPTY_FORM = { name: '', business: '', website: '', email: '', people: '', message: '' };
+
 interface ContactSectionProps {
-  prefilledPlan?: string;
+  planRequest?: { plan: string } | null;
 }
 
-export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPlan }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    business: '',
-    website: '',
-    email: '',
-    message: prefilledPlan ? `Hi Nabeel, I'm interested in the ${prefilledPlan} package for our year-in-review.` : '',
-  });
+export const ContactSection: React.FC<ContactSectionProps> = ({ planRequest }) => {
+  const [formData, setFormData] = useState(EMPTY_FORM);
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  // A "Choose <plan>" button in the pricing section selects that plan's range
+  useEffect(() => {
+    const option = PEOPLE_OPTIONS.find((o) => o.plan && o.plan === planRequest?.plan);
+    if (option) setFormData((prev) => ({ ...prev, people: option.people }));
+  }, [planRequest]);
+
+  const chosen = PEOPLE_OPTIONS.find((o) => o.people === formData.people);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -32,11 +48,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPlan })
           .join('&');
       };
 
-      await fetch('/', {
+      const plan = chosen ? chosen.details || NOT_SURE_PLAN : '';
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...formData }),
+        body: encode({ 'form-name': 'contact', ...formData, plan }),
       });
+      if (!response.ok) throw new Error(`Form not saved (HTTP ${response.status})`);
 
       setStatus('success');
     } catch {
@@ -78,7 +96,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPlan })
         </div>
 
         {/* Netlify Form */}
-        <div className="mt-12 bg-[#FAFAF9] border border-stone-200 rounded-2xl p-6 sm:p-10 shadow-xs">
+        <div id="contact-form" className="mt-12 bg-[#FAFAF9] border border-stone-200 rounded-2xl p-6 sm:p-10 shadow-xs scroll-mt-24">
           {status === 'success' ? (
             <div className="text-center py-8">
               <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto text-xl font-bold">
@@ -94,7 +112,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPlan })
                 type="button"
                 onClick={() => {
                   setStatus('idle');
-                  setFormData({ name: '', business: '', website: '', email: '', message: '' });
+                  setFormData(EMPTY_FORM);
                 }}
                 className="mt-6 inline-flex px-4 py-2 text-xs font-semibold text-stone-700 bg-white border border-stone-300 rounded-lg hover:bg-stone-50"
               >
@@ -177,6 +195,46 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledPlan })
                     className="w-full px-4 py-2.5 rounded-lg border border-stone-300 bg-white text-stone-900 placeholder:text-stone-400 focus:outline-hidden focus:ring-2 focus:ring-stone-900 focus:border-stone-900 text-sm transition-all"
                   />
                 </div>
+              </div>
+
+              <div>
+                <label htmlFor="people" className="block text-sm font-semibold text-stone-800 mb-2">
+                  How many people will get a video? <span className="text-stone-400 font-normal">*</span>
+                </label>
+                <select
+                  id="people"
+                  name="people"
+                  required
+                  value={formData.people}
+                  onChange={handleChange}
+                  className={`w-full sm:w-[calc(50%-0.75rem)] px-4 py-2.5 rounded-lg border border-stone-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-stone-900 focus:border-stone-900 text-sm transition-all ${
+                    formData.people ? 'text-stone-900' : 'text-stone-400'
+                  }`}
+                >
+                  <option value="" disabled>
+                    Choose one
+                  </option>
+                  {PEOPLE_OPTIONS.map((o) => (
+                    <option key={o.people} value={o.people} className="text-stone-900">
+                      {o.people}
+                    </option>
+                  ))}
+                </select>
+
+                {chosen && (
+                  <p className="mt-3 text-sm text-stone-800">
+                    {chosen.details ? (
+                      <>
+                        Plan: <span className="font-semibold">{chosen.details}</span>
+                      </>
+                    ) : (
+                      "No problem. I'll suggest a plan after your free sample."
+                    )}
+                  </p>
+                )}
+                <p className="mt-2 text-xs text-stone-500 leading-relaxed">
+                  Prices are a starting point. If your budget is different or you need something special, tell me in your message and we'll find a plan that works.
+                </p>
               </div>
 
               <div>
