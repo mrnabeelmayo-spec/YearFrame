@@ -15,7 +15,7 @@ export const AboutSection: React.FC = () => {
                 {!photoError ? (
                   <img
                     src={ABOUT_MEDIA.photo}
-                    alt="Nabeel Mayo"
+                    alt="Nabeel Ahmad"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                     onError={() => setPhotoError(true)}
@@ -26,7 +26,7 @@ export const AboutSection: React.FC = () => {
                 {/* Elegant fallback if photo file is pending */}
                 {photoError && (
                   <div className="w-full h-full p-3 flex flex-col items-center justify-between text-center bg-stone-100 text-stone-600">
-                    <span className="text-2xl font-bold font-mono text-stone-700 mt-2">NM</span>
+                    <span className="text-2xl font-bold font-mono text-stone-700 mt-2">NA</span>
                     <div className="text-[10px] font-mono text-stone-400 truncate max-w-full">
                       {ABOUT_MEDIA.photo}
                     </div>
@@ -41,7 +41,7 @@ export const AboutSection: React.FC = () => {
                 Founder & Developer
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-stone-900">
-                Nabeel Mayo
+                Nabeel Ahmad
               </h3>
 
               <div className="mt-4 space-y-3 text-stone-700 text-base sm:text-lg leading-relaxed">

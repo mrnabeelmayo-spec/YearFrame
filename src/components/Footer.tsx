@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({
             © 2026 Yearframes. All rights reserved.
           </div>
           <div className="text-stone-400">
-            Handcrafted by Nabeel Mayo. No tracking cookies.
+            Handcrafted by Nabeel Ahmad. No tracking cookies.
           </div>
         </div>
       </div>

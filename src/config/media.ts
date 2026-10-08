@@ -31,7 +31,7 @@ export const HERO_MEDIA = {
 
 export const ABOUT_MEDIA = {
   photo: '/images/nabeel.jpg',
-  name: 'Nabeel Mayo',
+  name: 'Nabeel Ahmad',
   role: 'Founder & Engineer',
   email: 'mrnabeelmayo@gmail.com',
   whatsapp: '+92 302 4055040',

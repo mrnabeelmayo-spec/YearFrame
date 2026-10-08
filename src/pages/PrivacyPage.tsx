@@ -60,7 +60,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onBackToHome }) => {
                 <strong>Data minimization:</strong> We strictly request only first names (or first name + last initial) and numerical activity metrics (such as classes attended, visits logged, lessons completed, or dollars contributed). We never ask for or accept email addresses, phone numbers, home addresses, or payment card details.
               </li>
               <li>
-                <strong>Local processing:</strong> Video generation scripts run in an isolated local environment controlled directly by Nabeel Mayo. No customer records are uploaded to third-party generative AI models or public clouds.
+                <strong>Local processing:</strong> Video generation scripts run in an isolated local environment controlled directly by Nabeel Ahmad. No customer records are uploaded to third-party generative AI models or public clouds.
               </li>
               <li>
                 <strong>Strict deletion:</strong> All raw spreadsheets and intermediate rendering data are permanently purged within 14 days of final delivery and client confirmation.
@@ -88,7 +88,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onBackToHome }) => {
               For any questions regarding data security, DPA requests, or privacy practices, reach out directly to:
             </p>
             <div className="mt-4 p-5 bg-white border border-stone-200 rounded-xl text-sm space-y-1">
-              <div className="font-semibold text-stone-900">Nabeel Mayo · Yearframes</div>
+              <div className="font-semibold text-stone-900">Nabeel Ahmad · Yearframes</div>
               <div>Email: <a href={`mailto:${ABOUT_MEDIA.email}`} className="text-stone-900 underline font-medium">{ABOUT_MEDIA.email}</a></div>
               <div>WhatsApp: <a href={ABOUT_MEDIA.whatsappLink} className="text-stone-900 underline font-medium">{ABOUT_MEDIA.whatsapp}</a></div>
             </div>
